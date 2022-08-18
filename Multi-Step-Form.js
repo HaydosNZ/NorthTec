@@ -196,6 +196,23 @@ function initFieldDependency() {
                                 $(o).removeClass("error");
                             }
                         }
+                    } else if ($this.is(":checkbox")) {
+                        if (dependencyValue == "1") {
+                            if ($this.is(":checked")) {
+                                $(o).removeClass("hidden").find(":input").prop("disabled", false);
+                                if (required == "depends") {
+                                    $(o).attr("data-required", "true");
+                                }
+                            }
+                        }
+                        if (dependencyValue == "0") {
+                            if (!$this.is(":checked")) {
+                                $(o).removeClass("hidden").find(":input").prop("disabled", false);
+                                if (required == "depends") {
+                                    $(o).attr("data-required", "true");
+                                }
+                            }
+                        }
                     } else {
                         if (dependencyValue == $value) {
                             $(o).removeClass("hidden").find(":input").prop("disabled", false);
