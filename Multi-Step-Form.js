@@ -38,7 +38,12 @@ if ($enrolForm.length > 0) {
         for (i = 0; i < newIndex; i++) {
             validateSteps(i);
         }
-        //validateGlobal();
+        if (newIndex + 1 == $formSteps.length) {
+            const $decl = $(".js-declaration-field input[type=checkbox]");
+            if ($decl.is(":checked")) {
+                $decl.change();
+            }
+        }
         if ($tabs.hasClass("error")) {
             $(".step-global-error").removeClass("hidden");
         } else {
@@ -306,13 +311,16 @@ function initFields() {
         }
         if ($tabs.hasClass("error")) {
             $(".step-global-error").removeClass("hidden");
-            $(".submit-button").addClass("disabled").attr("aria-disabled", "true");
+            $(".submit-wrapper-placeholder").removeClass("hidden");
+            $("#submit-wrapper").addClass("hidden");
         } else {
             $(".step-global-error").addClass("hidden");
             if ($declaration.is(":checked")) {
-                $(".submit-button").removeClass("disabled").attr("aria-disabled", "false");
+                $(".submit-wrapper-placeholder").addClass("hidden");
+                $("#submit-wrapper").removeClass("hidden");
             } else {
-                $(".submit-button").addClass("disabled").attr("aria-disabled", "true");
+                $(".submit-wrapper-placeholder").removeClass("hidden");
+                $("#submit-wrapper").addClass("hidden");
             }
         }
     });
