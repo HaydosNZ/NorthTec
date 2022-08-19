@@ -4,7 +4,7 @@ for (var i = 0; i < inputs.length; i++) {
         if (!this.checkValidity()) {
             addErr(this);
         } else if (this.matches('[type=submit]')) {
-            console.log('submit clicked')
+            //console.log('submit clicked')
         } else if (this.value.length != 0) {
             this.closest('.js-form-control-section').classList.remove('error');
             let errlab = this.closest('.js-form-control-section').querySelector('label.error');
@@ -43,6 +43,9 @@ if ($enrolForm.length > 0) {
             if ($decl.is(":checked")) {
                 $decl.change();
             }
+            $('#next-button').addClass("hidden");
+        } else{
+            $('#next-button').removeClass("hidden");
         }
         if ($tabs.hasClass("error")) {
             $(".step-global-error").removeClass("hidden");
