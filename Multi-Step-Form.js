@@ -151,8 +151,10 @@ function initFieldDependency() {
             var $dependants = $this.parents("[data-dependants]").data("dependants")
             var deps = [];
             deps = $dependants.split(";");
-            $.each(deps, function (i, o) {
-                if ($(o).length > 0) {
+            $.each(deps, function (ii, oo) {
+                if ($(oo).length > 0) {
+                    var pepd = $(oo);
+                    $.each(pepd, function (i, o) {
                     var dependencyValue = $(o).data("dependency-value") + "";
                     var required = $(o).attr("data-required");
                     var str = $value + "";
@@ -234,6 +236,7 @@ function initFieldDependency() {
                             }
                         }
                     }
+                });
                 }
             });
         });
