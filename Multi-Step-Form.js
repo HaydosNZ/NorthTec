@@ -214,12 +214,24 @@ function initFieldDependency() {
                                     $(o).attr("data-required", "true");
                                 }
                             }
+                            if (!$this.is(":checked")) {
+                                $(o).addClass("hidden").find(":input").prop("disabled", true);
+                                if (required == "true") {
+                                    $(o).attr("data-required", "depends");
+                                }
+                            }
                         }
                         if (dependencyValue == "0") {
                             if (!$this.is(":checked")) {
                                 $(o).removeClass("hidden").find(":input").prop("disabled", false);
                                 if (required == "depends") {
                                     $(o).attr("data-required", "true");
+                                }
+                            }
+                            if ($this.is(":checked")) {
+                                $(o).addClass("hidden").find(":input").prop("disabled", true);
+                                if (required == "true") {
+                                    $(o).attr("data-required", "depends");
                                 }
                             }
                         }
