@@ -236,7 +236,7 @@ function initFieldDependency() {
                             }
                         }
                     } else {
-                        if (dependencyValue == $value) {
+                        if (dependencyValue == $value || $value.indexOf(dependencyValue + ";") >= 0 ) {
                             $(o).removeClass("hidden").find(":input").prop("disabled", false);
                             if (required == "depends") {
                                 $(o).attr("data-required", "true");
