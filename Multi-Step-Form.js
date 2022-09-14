@@ -191,6 +191,11 @@ function initFieldDependency() {
                             if (required == "depends") {
                                 $(o).attr("data-required", "true");
                             }
+                        } else {
+                            $(o).addClass("hidden").find(":input").prop("disabled", true);
+                            if (required != "false") {
+                                $(o).attr("data-required", "depends");
+                            }
                         }
                     } else if (dependencyValue == 'null') {
                         if ($value.length == 0) {
